@@ -1,0 +1,72 @@
+@charset "UTF-8";
+
+header {
+    background-image: linear-gradient(to bottom, rgba(39, 39, 39, 0.623), black);
+}
+
+div#logo-header img{
+    height: 150px;    
+}
+
+.burger {
+    position: fixed;
+    top: 80px;
+    right: 95px;
+    background: none;
+    border: none;
+    border-top: 3px solid #ffd700;
+    z-index: 5;
+    cursor: pointer;
+}
+
+.burger::before,
+.burger::after {
+    content: " ";
+    display: block;
+    width: 30px;
+    height: 3px;
+    background: #ffd700;
+    margin-top: 5px;
+    position: relative;
+    transition: .3s;
+}
+
+.burger:hover {
+    transform: scale(120%);
+    transition: .3s;
+}
+
+.container {
+    position: absolute;
+    height: calc(100vh - 160px);
+    width: 100vw;
+    top: 50%;
+    left: 50%;
+    background-image: linear-gradient(to bottom, rgb(0, 0, 0), gray);
+    clip-path: circle(0% at 92% -15%);
+    text-align: center;
+    z-index: 2;
+
+    transform: translate(-50%, -35%);
+    transition: clip-path ease-in .8s;
+}
+
+
+
+/*Configurações de ativação*/
+nav.abrir {
+    clip-path: circle(150%);
+}
+
+button.ativo {
+    border-top-color: transparent;
+}
+
+button.ativo::before {
+    transform: rotate(135deg);
+}
+
+button.ativo::after {
+    transform: rotate(-135deg);
+    top: -7px;
+}
